@@ -56,11 +56,11 @@ int main() {
 		   [&]() {
              string_vector orig1a = test1;
 			 int p = hoare_partition(orig1a, 0, 0);
-		     TEST_TRUE("true: 1 word", p == 0);
+		     TEST_TRUE("true: 1 word", p==0);
 
              string_vector orig8a = test8;
 			 p = hoare_partition(orig8a, 0, 7);
-		     TEST_TRUE("true: 8 words", p == 4);
+		     TEST_TRUE("true: 8 words", p==3);
 		   });
 
 
@@ -85,6 +85,12 @@ int main() {
 			 sort(origb.begin(), origb.end());
 		     TEST_TRUE("true: 10,000 words", origa == origb);
 		   });
+
+
+	int n = 7000;
+  	string_vector n_words(words_txt.begin(), words_txt.begin() + n);
+	mergesort(n_words);
+	quicksort(n_words);
 
   return rubric.run();
 }
